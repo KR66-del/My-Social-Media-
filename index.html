@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en" data-adbreak-test="on">
+<head>
+<meta charset="UTF-8">
+<title>MY SOCIAL MEDIA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3454603080231359"
+crossorigin="anonymous"></script>
+
+<style>
+body{margin:0;font-family:Arial;text-align:center}
+.page{display:none;padding-bottom:80px}
+.home{background:#ffe0e0}
+.quotes{background:#e0f7ff}
+.settings{background:#e0ffe6}
+h1{font-size:40px}
+.icons{display:flex;justify-content:center;gap:20px}
+.app img{width:60px}
+.app{cursor:pointer}
+.quote{background:#fff;margin:10px;padding:15px;border-radius:10px}
+nav{position:fixed;bottom:50px;width:100%;background:#222}
+nav button{color:white;background:none;border:none;font-size:16px;margin:10px}
+.banner{position:fixed;bottom:0;width:100%}
+footer{margin:20px}
+.dark{background:#222;color:#fff}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<div id="home" class="page home">
+<h1>MY SOCIAL MEDIA</h1>
+
+<div class="icons">
+  <div class="app" onclick="rewardedGo('https://www.tiktok.com')">
+    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"><p>TikTok</p>
+  </div>
+  <div class="app" onclick="rewardedGo('https://www.instagram.com')">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"><p>Instagram</p>
+  </div>
+  <div class="app" onclick="rewardedGo('https://www.youtube.com')">
+    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"><p>YouTube</p>
+  </div>
+  <div class="app" onclick="rewardedGo('https://movieboxpro.app')">
+    <img src="https://cdn-icons-png.flaticon.com/512/744/744465.png"><p>MovieBox</p>
+  </div>
+</div>
+
+<button onclick="donate()">🎁 Donate</button>
+<p>donate for gifts, the more you donate the more gifts you get</p>
+<footer>@Kats.Rodger</footer>
+</div>
+
+<!-- QUOTES -->
+<div id="quotes" class="page quotes">
+<h2>Daily Quotes</h2>
+<button onclick="showAdvanced()">Advanced Quotes</button>
+<div id="quoteBox"></div>
+<footer>@Kats.Rodger</footer>
+</div>
+
+<!-- SETTINGS -->
+<div id="settings" class="page settings">
+<h2>Settings</h2>
+<p><a href="#">Privacy Policy</a></p>
+<p><a href="mailto:owomugisharodgers732@gmail.com">Support</a></p>
+<p><a href="https://wa.me/256764578583">Contact Us (WhatsApp)</a></p>
+<button onclick="setTheme('light')">Light</button>
+<button onclick="setTheme('dark')">Dark</button>
+<footer>@Kats.Rodger</footer>
+</div>
+
+<!-- NAV -->
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('quotes')">Daily Quotes</button>
+<button onclick="showPage('settings')">Settings</button>
+</nav>
+
+<!-- Banner Ad -->
+<div class="banner">
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-3454603080231359"
+data-ad-slot="1234567890"
+data-ad-format="auto"></ins>
+</div>
+
+<script>
+const quotes=[
+"Love is life.","Education is power.","Never give up.","Business builds success."
+];
+
+function showPage(id){
+ document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+ document.getElementById(id).style.display='block';
+}
+showPage('home');
+
+function rewardedGo(url){
+ alert("Rewarded Ad playing...");
+ setTimeout(()=>window.location=url,5000);
+}
+
+function donate(){
+ alert("Send money to 0702327081\nEnter amount then mobile pin.");
+}
+
+function loadQuotes(){
+ let box=document.getElementById("quoteBox");
+ quotes.forEach(q=>{
+  let d=document.createElement("div");
+  d.className="quote";
+  d.innerHTML=`${q}<br>
+  <button onclick="quoteAd(()=>shareWA('${q}'))">WhatsApp</button>
+  <button onclick="quoteAd(()=>alert('Share on TikTok: ${q}'))">TikTok</button>
+  <button onclick="quoteAd(()=>saveImg('${q}'))">Save</button>`;
+  box.appendChild(d);
+ });
+}
+loadQuotes();
+
+function quoteAd(cb){
+ alert("Ad 5 seconds...");
+ setTimeout(cb,5000);
+}
+
+function showAdvanced(){
+ alert("Interstitial Ad...");
+ setTimeout(()=>alert("Advanced Quote: Dream Big!"),5000);
+}
+
+function shareWA(t){
+ window.open(`https://wa.me/?text=${encodeURIComponent(t)}`);
+}
+
+function saveImg(t){
+ let c=document.createElement("canvas");
+ let x=c.getContext("2d");
+ c.width=400;c.height=200;
+ x.fillStyle="#fff";x.fillRect(0,0,400,200);
+ x.fillStyle="#000";x.fillText(t,20,100);
+ let a=document.createElement("a");
+ a.download="quote.png";a.href=c.toDataURL();a.click();
+}
+
+function setTheme(t){
+ document.body.className=t;
+}
+</script>
+
+<script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+</body>
+</html>

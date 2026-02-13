@@ -10,84 +10,53 @@
 crossorigin="anonymous"></script>
 
 <style>
-body{margin:0;font-family:Arial, sans-serif;scroll-behavior:smooth;}
-.page{display:none;min-height:100vh; display:flex;flex-direction:column;justify-content:center;align-items:center;padding-bottom:120px;box-sizing:border-box;}
+body{margin:0;font-family:Arial,sans-serif;}
+.page{display:none;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding-bottom:120px;}
 .home{background:#ffe0e0;}
 .quotes{background:#e0f7ff;}
 .settings{background:#e0ffe6;}
-h1,h2{margin-top:20px;text-align:center;}
-.icons{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;margin:20px 0;}
-.app img{width:60px;cursor:pointer;transition: transform 0.2s;}
-.app img:hover{transform: scale(1.2);}
-.app p{margin:0;font-size:14px;text-align:center;}
-.quote{background:#fff;margin:10px;padding:15px;border-radius:15px;box-shadow:0 4px 8px rgba(0,0,0,0.1);text-align:left;max-width:95%;margin:auto;transition: transform 0.2s;}
-.quote:hover{transform: translateY(-3px);}
-.category{margin-top:25px;width:100%;}
-.category h3{background:#333;color:white;padding:10px;border-radius:10px;text-align:center;}
-nav {
-  position: fixed;
-  bottom: 10px;
-  width: 95%;
-  background: #222;
-  padding: 10px;
-  display: flex;
-  justify-content: space-around;
-  border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 1000;
+h1,h2{text-align:center;}
+.icons{display:flex;gap:20px;flex-wrap:wrap;}
+.app{text-align:center;}
+.app img{width:60px;cursor:pointer;}
+.quote{background:#fff;padding:12px;margin:10px;border-radius:10px;width:90%;}
+.category h3{background:#333;color:#fff;padding:8px;border-radius:10px;text-align:center;}
+nav{
+ position:fixed;bottom:10px;width:95%;background:#222;
+ padding:10px;display:flex;justify-content:space-around;
+ border-radius:30px;
 }
-nav button {
-  color: white;
-  background: none;
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  padding: 8px 12px;
-  border-radius: 15px;
-  transition: 0.3s;
+nav button{
+ color:white;background:none;border:none;
+ display:flex;flex-direction:column;align-items:center;
 }
-nav button img { width: 22px; }
-nav button:hover { background: #444; }
-nav button.active { background: #007BFF; color: white; }
+nav img{width:22px;}
+nav .active{background:#007BFF;border-radius:15px;padding:5px;}
+footer{margin:10px;text-align:center;}
 .banner{position:fixed;bottom:0;width:100%;}
-footer{margin:20px;text-align:center;}
-.dark{background:#222;color:#fff}
-.hidden{display:none;}
-button{padding:5px 10px;margin:5px;cursor:pointer;border-radius:8px;border:none;background:#007BFF;color:white;transition: 0.2s;}
-button:hover{background:#0056b3;}
-@media(max-width:480px){
- .icons{flex-direction:column;}
- .app img{width:50px;}
- .quote{font-size:14px;}
- nav button{font-size:12px;}
- nav button img{width:16px;}
-}
+button{padding:5px 10px;border:none;background:#007BFF;color:white;border-radius:6px;}
 </style>
 </head>
 
 <body>
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 <div id="home" class="page home">
 <h1>MY SOCIAL MEDIA</h1>
 
 <div class="icons">
-  <div class="app" onclick="rewardedGo('https://www.tiktok.com')">
-    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"><p>TikTok</p>
-  </div>
-  <div class="app" onclick="rewardedGo('https://www.instagram.com')">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"><p>Instagram</p>
-  </div>
-  <div class="app" onclick="rewardedGo('https://www.youtube.com')">
-    <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"><p>YouTube</p>
-  </div>
-  <div class="app" onclick="rewardedGo('https://www.spotify.com')">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png"><p>Spotify</p>
-  </div>
+<div class="app" onclick="rewardedGo('https://www.tiktok.com')">
+<img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png"><p>TikTok</p>
+</div>
+<div class="app" onclick="rewardedGo('https://www.instagram.com')">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"><p>Instagram</p>
+</div>
+<div class="app" onclick="rewardedGo('https://www.youtube.com')">
+<img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"><p>YouTube</p>
+</div>
+<div class="app" onclick="rewardedGo('https://www.spotify.com')">
+<img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png"><p>Spotify</p>
+</div>
 </div>
 
 <button onclick="donate()">🎁 Donate</button>
@@ -95,140 +64,85 @@ button:hover{background:#0056b3;}
 <footer>@Kats.Rodger</footer>
 </div>
 
-<!-- QUOTES PAGE -->
+<!-- QUOTES -->
 <div id="quotes" class="page quotes">
 <h2>Daily Quotes</h2>
-<button onclick="showAdvanced()">Advanced Quotes</button>
 
-<div id="categoriesContainer"></div>
-<div id="advancedBox" class="hidden"></div>
+<div class="category">
+<h3>Love</h3>
+<div class="quote">Love is life.</div>
+<div class="quote">Love conquers all.</div>
+</div>
+
+<div class="category">
+<h3>Education</h3>
+<div class="quote">Education is power.</div>
+<div class="quote">Learning never ends.</div>
+</div>
+
+<div class="category">
+<h3>Motivation</h3>
+<div class="quote">Never give up.</div>
+<div class="quote">Believe in yourself.</div>
+</div>
+
+<div class="category">
+<h3>Business</h3>
+<div class="quote">Work smart, not hard.</div>
+<div class="quote">Success is built daily.</div>
+</div>
+
 <footer>@Kats.Rodger</footer>
 </div>
 
-<!-- SETTINGS PAGE -->
+<!-- SETTINGS -->
 <div id="settings" class="page settings">
 <h2>Settings</h2>
-<p><a href="#">Privacy Policy</a></p>
+<p>Privacy Policy</p>
 <p><a href="mailto:owomugisharodgers732@gmail.com">Support</a></p>
-<p><a href="https://wa.me/256764578583">Contact Us (WhatsApp)</a></p>
-<p>Change Theme:</p>
+<p><a href="https://wa.me/256764578583">Contact Us</a></p>
 <button onclick="setTheme('light')">Light</button>
 <button onclick="setTheme('dark')">Dark</button>
 <footer>@Kats.Rodger</footer>
 </div>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
-<button id="nav-home" onclick="showPage('home')"><img src="https://cdn-icons-png.flaticon.com/512/25/25694.png">Home</button>
-<button id="nav-quotes" onclick="showPage('quotes')"><img src="https://cdn-icons-png.flaticon.com/512/197/197563.png">Daily Quotes</button>
-<button id="nav-settings" onclick="showPage('settings')"><img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png">Settings</button>
+<button id="nav-home" onclick="showPage('home')">
+<img src="https://cdn-icons-png.flaticon.com/512/25/25694.png">Home
+</button>
+<button id="nav-quotes" onclick="showPage('quotes')">
+<img src="https://cdn-icons-png.flaticon.com/512/197/197563.png">Quotes
+</button>
+<button id="nav-settings" onclick="showPage('settings')">
+<img src="https://cdn-icons-png.flaticon.com/512/2099/2099058.png">Settings
+</button>
 </nav>
 
-<!-- BANNER AD -->
 <div class="banner">
 <ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-3454603080231359"
-     data-ad-slot="1234567890"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
+ style="display:block"
+ data-ad-client="ca-pub-3454603080231359"
+ data-ad-format="auto"></ins>
 </div>
 
 <script>
-// Show pages and highlight active nav
-function updateActiveNav(id){
-  document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-  document.getElementById('nav-' + id).classList.add('active');
-}
 function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.style.display='none');
-  document.getElementById(id).style.display='flex';
-  updateActiveNav(id);
+ document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+ document.getElementById(id).style.display='flex';
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ document.getElementById('nav-'+id).classList.add('active');
 }
-showPage('home'); // default page
+showPage('home');
 
-// Rewarded/Interstitial ad simulation
 function rewardedGo(url){
- alert("Rewarded ad playing...");
+ alert("Rewarded Ad...");
  setTimeout(()=>window.location=url,5000);
 }
-
-// Donation
-function donate(){
- alert("Send money to 0702327081\nEnter amount then mobile pin.");
-}
-
-// Quotes with categories
-const quotesByCategory = {
-  Love: ["Love is life.","Love conquers all.","Love yourself first."],
-  Education: ["Education is power.","Knowledge is wealth.","Learning never ends."],
-  Motivation: ["Never give up.","You can do it.","Believe in yourself."],
-  Business: ["Success is built daily.","Work smart, not hard.","Take calculated risks."]
-};
-
-// Load quotes into cards
-function loadQuotesByCategory(){
-  const container = document.getElementById("categoriesContainer");
-  container.innerHTML = "";
-  for(const cat in quotesByCategory){
-    let div = document.createElement("div");
-    div.className = "category";
-    div.innerHTML = `<h3>${cat}</h3>`;
-    quotesByCategory[cat].forEach(q=>{
-      let card = document.createElement("div");
-      card.className="quote";
-      card.style.borderLeft = `5px solid ${randomColor()}`;
-      card.innerHTML = `${q}<br>
-        <button onclick="quoteAd(()=>shareWA('${q}'))">WhatsApp</button>
-        <button onclick="quoteAd(()=>shareTT('${q}'))">TikTok</button>
-        <button onclick="quoteAd(()=>saveImg('${q}'))">Save</button>`;
-      div.appendChild(card);
-    });
-    container.appendChild(div);
-  }
-}
-function randomColor(){
-  const colors=["#FF5733","#33FF57","#3357FF","#FF33A8","#FFC300","#8E44AD"];
-  return colors[Math.floor(Math.random()*colors.length)];
-}
-loadQuotesByCategory();
-
-// Simulate ad before action
-function quoteAd(cb){ alert("Ad 5 seconds..."); setTimeout(cb,5000); }
-
-// Share functions
-function shareWA(t){ window.open(`https://wa.me/?text=${encodeURIComponent(t)}`); }
-function shareTT(t){ alert("Copy & share on TikTok: "+t); }
-
-// Save quote as image
-function saveImg(t){
- let c=document.createElement("canvas");
- let x=c.getContext("2d");
- c.width=400;c.height=200;
- x.fillStyle="#fff"; x.fillRect(0,0,400,200);
- x.fillStyle="#000"; x.fillText(t,20,100);
- let a=document.createElement("a");
- a.download="quote.png"; a.href=c.toDataURL(); a.click();
-}
-
-// Advanced quotes
-function showAdvanced(){
- alert("Interstitial Ad...");
- setTimeout(()=>{
-  const box = document.getElementById("advancedBox");
-  box.classList.remove("hidden");
-  box.innerHTML=`<div class="quote" style="border-left:5px solid #FF5733;">Dream Big, Achieve More!</div>`;
-  box.scrollIntoView({behavior:"smooth"});
- },5000);
-}
-
-// Theme
-function setTheme(t){ document.body.className=t; localStorage.setItem("theme",t); }
-window.onload=()=>{ let t=localStorage.getItem("theme"); if(t) document.body.className=t; }
-
-// Push ads
+function donate(){alert("Send money to 0702327081");}
+function setTheme(t){document.body.className=t;}
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
+
 </body>
   </html>
-  
